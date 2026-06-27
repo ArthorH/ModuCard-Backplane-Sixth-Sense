@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.0,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
@@ -69,7 +69,13 @@
           "thermal_relief_spoke_width": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -203,7 +209,9 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -230,7 +238,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -798,7 +811,7 @@
         "uuid": "b8e6d233-63ab-459d-a617-f62d9ba23c71"
       }
     ],
-    "used_designators": "X2,U4,U402-403,D20-34,C25-40,R25-38,J2-4,J14-24,#PWR7-12,#PWR29,#PWR31-86,#PWR94-329,#PWR332-480,#PWR485-800,#PWR803-804,#PWR811-1260",
+    "used_designators": "#FLG1-6",
     "variants": []
   },
   "sheets": [
@@ -815,8 +828,8 @@
       "Can Split Terminators"
     ],
     [
-      "d4669f4e-318d-4b49-93f0-994cf67e9372",
-      "Ext-Connector2"
+      "7b045d82-4372-4539-b869-45332ae730ea",
+      "VRM"
     ],
     [
       "2bbba32f-0136-4af2-ae6f-8c58e0284b8d",
@@ -857,6 +870,10 @@
     [
       "e2d48817-f6e2-44de-a5d2-747dfcf0101e",
       "FE2.1"
+    ],
+    [
+      "1b39a8b3-369e-487c-a41c-a98469e8eb80",
+      "Ext-conn-M"
     ]
   ],
   "text_variables": {
