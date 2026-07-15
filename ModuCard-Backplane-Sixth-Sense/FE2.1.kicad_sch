@@ -7886,6 +7886,16 @@
 		)
 		(uuid "686dafaf-9005-4166-b118-0164fb2e9581")
 	)
+	(label "VD18"
+		(at 138.43 115.57 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6af3d3c6-efa4-4717-9937-b1ef48a2f299")
+	)
 	(label "USB2.D-"
 		(at 177.8 116.84 0)
 		(effects
@@ -8325,16 +8335,6 @@
 			(justify left bottom)
 		)
 		(uuid "f8a0a983-3588-4843-a6d1-383859a59196")
-	)
-	(label "VD_DLL"
-		(at 138.43 115.57 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fb78d1ca-3471-468d-93fb-9ef7e0273bd5")
 	)
 	(label "USB7.D-"
 		(at 146.05 45.72 90)
