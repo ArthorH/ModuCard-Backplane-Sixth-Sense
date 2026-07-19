@@ -86,7 +86,7 @@
         "connection_width": "warning",
         "copper_edge_clearance": "error",
         "copper_sliver": "warning",
-        "courtyards_overlap": "error",
+        "courtyards_overlap": "ignore",
         "creepage": "error",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
@@ -99,7 +99,7 @@
         "footprint_symbol_mismatch": "warning",
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
-        "hole_to_hole": "warning",
+        "hole_to_hole": "error",
         "holes_co_located": "warning",
         "invalid_outline": "error",
         "isolated_copper": "warning",
@@ -116,9 +116,9 @@
         "missing_tuning_profile": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "error",
+        "npth_inside_courtyard": "ignore",
         "padstack": "warning",
-        "pth_inside_courtyard": "error",
+        "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
@@ -146,24 +146,24 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.1,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
-        "min_hole_clearance": 0.25,
-        "min_hole_to_hole": 0.25,
+        "min_hole_clearance": 0.1,
+        "min_hole_to_hole": 0.2,
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
-        "min_resolved_spokes": 2,
+        "min_resolved_spokes": 1,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
-        "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.2,
-        "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.5,
+        "min_text_height": 0.6,
+        "min_text_thickness": 0.1,
+        "min_through_hole_diameter": 0.15,
+        "min_track_width": 0.1,
+        "min_via_annular_width": 0.05,
+        "min_via_diameter": 0.3,
         "solder_mask_to_copper_clearance": 0.0,
-        "use_height_for_length_calcs": true
+        "use_height_for_length_calcs": false
       },
       "teardrop_options": [
         {
@@ -210,7 +210,13 @@
         }
       ],
       "track_widths": [
-        0.0
+        0.0,
+        0.1,
+        0.13,
+        0.15,
+        0.2,
+        0.25,
+        0.3
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -242,9 +248,21 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.25,
+          "drill": 0.15
+        },
+        {
+          "diameter": 0.4,
+          "drill": 0.2
+        },
+        {
+          "diameter": 0.5,
+          "drill": 0.3
         }
       ],
-      "zones_allow_external_fillets": false
+      "zones_allow_external_fillets": true
     },
     "ipc2581": {
       "bom_rev": "",
@@ -527,17 +545,35 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.15,
+        "clearance": 0.2,
         "diff_pair_gap": 0.2,
         "diff_pair_width": 0.13,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "CAN_120_DIFF",
-        "pcb_color": "rgb(255, 81, 215)",
-        "priority": 0,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.12,
+        "name": "CAN_120Ohm_diff",
+        "pcb_color": "rgb(0, 194, 194)",
+        "priority": 3,
+        "schematic_color": "rgb(0, 194, 194)",
+        "track_width": 0.13,
+        "tuning_profile": "",
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.12,
+        "diff_pair_gap": 0.12,
+        "diff_pair_width": 0.15,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "ETHERNET_100Ohm_diff",
+        "pcb_color": "rgb(132, 0, 132)",
+        "priority": 5,
+        "schematic_color": "rgb(132, 0, 132)",
+        "track_width": 0.15,
         "tuning_profile": "",
         "via_diameter": 0.5,
         "via_drill": 0.3,
@@ -546,8 +582,58 @@
       {
         "bus_width": 12,
         "clearance": 0.15,
-        "diff_pair_gap": 0.25,
-        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "GND",
+        "pcb_color": "rgb(0, 0, 255)",
+        "priority": 2,
+        "schematic_color": "rgb(0, 0, 255)",
+        "track_width": 0.3,
+        "tuning_profile": "",
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "wire_width": 10
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.12,
+        "diff_pair_gap": 0.12,
+        "diff_pair_width": 0.15,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "HDMI_100Ohm_diff",
+        "pcb_color": "rgb(132, 0, 0)",
+        "priority": 4,
+        "schematic_color": "rgb(132, 0, 0)",
+        "track_width": 0.15,
+        "tuning_profile": "",
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.12,
+        "diff_pair_gap": 0.12,
+        "diff_pair_width": 0.23,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "PCIe_85Ohm_diff",
+        "pcb_color": "rgb(0, 194, 0)",
+        "priority": 7,
+        "schematic_color": "rgb(0, 194, 0)",
+        "track_width": 0.23,
+        "tuning_profile": "",
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.15,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
@@ -563,35 +649,48 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_width": 0.18,
+        "clearance": 0.15,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "QSPI_50S_SE",
-        "pcb_color": "rgb(55, 255, 75)",
-        "priority": 2,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.18,
+        "name": "SDIO_50Ohm_se",
+        "pcb_color": "rgb(0, 132, 0)",
+        "priority": 8,
+        "schematic_color": "rgb(0, 132, 0)",
+        "track_width": 0.35,
         "tuning_profile": "",
         "via_diameter": 0.5,
         "via_drill": 0.3,
         "wire_width": 6
       },
       {
+        "clearance": 0.12,
+        "diff_pair_gap": 0.12,
+        "diff_pair_width": 0.15,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Strobe_100Ohm",
+        "pcb_color": "rgb(255, 2, 244)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.15,
+        "tuning_profile": "",
+        "via_diameter": 0.5,
+        "via_drill": 0.3
+      },
+      {
         "bus_width": 12,
-        "clearance": 0.15,
+        "clearance": 0.12,
         "diff_pair_gap": 0.12,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "USB_90_DIFF",
-        "pcb_color": "rgb(38, 8, 255)",
-        "priority": 3,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.15,
+        "name": "USB_90Ohm_diff",
+        "pcb_color": "rgb(204, 102, 0)",
+        "priority": 6,
+        "schematic_color": "rgb(204, 102, 0)",
+        "track_width": 0.2,
         "tuning_profile": "",
         "via_diameter": 0.5,
         "via_drill": 0.3,
@@ -605,28 +704,16 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "USB_90_DIFF",
-        "pattern": "*.D*"
+        "netclass": "USB_90Ohm_diff",
+        "pattern": "*USB*"
       },
       {
-        "netclass": "CAN_120_DIFF",
-        "pattern": "*CAN*.+"
+        "netclass": "CAN_120Ohm_diff",
+        "pattern": "*CAN*"
       },
       {
-        "netclass": "CAN_120_DIFF",
-        "pattern": "*CAN*.-"
-      },
-      {
-        "netclass": "QSPI_50S_SE",
-        "pattern": "*QSPI*"
-      },
-      {
-        "netclass": "PWR",
-        "pattern": "*+*V*"
-      },
-      {
-        "netclass": "PWR",
-        "pattern": "*SW_*V*"
+        "netclass": "Strobe_100Ohm",
+        "pattern": "*Strobe*"
       }
     ]
   },
@@ -811,7 +898,7 @@
         "uuid": "b8e6d233-63ab-459d-a617-f62d9ba23c71"
       }
     ],
-    "used_designators": "R2,R20,#PWR7,#PWR94",
+    "used_designators": "SW5-6,J3,J7-15,J22-23,R2,R20,R22,R24-25,#PWR7,#PWR94,#PWR176-179,#PWR181-270,#PWR485-488,#PWR524-533,#PWR535-800,#PWR803-804,#PWR812-993,#PWR1186-1187,#PWR1195-1689",
     "variants": []
   },
   "sheets": [
