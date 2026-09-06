@@ -61,9 +61,9 @@
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
           "min_clearance": 0.0,
-          "min_island_area": 10.0,
+          "min_island_area": 0.0013161349,
           "min_thickness": 0.25,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
@@ -553,7 +553,7 @@
         "microvia_drill": 0.1,
         "name": "CAN_120Ohm_diff",
         "pcb_color": "rgb(0, 194, 194)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgb(0, 194, 194)",
         "track_width": 0.13,
         "tuning_profile": "",
@@ -571,7 +571,7 @@
         "microvia_drill": 0.1,
         "name": "ETHERNET_100Ohm_diff",
         "pcb_color": "rgb(132, 0, 132)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgb(132, 0, 132)",
         "track_width": 0.15,
         "tuning_profile": "",
@@ -587,7 +587,7 @@
         "microvia_drill": 0.1,
         "name": "GND",
         "pcb_color": "rgb(0, 0, 255)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgb(0, 0, 255)",
         "track_width": 0.3,
         "tuning_profile": "",
@@ -605,13 +605,20 @@
         "microvia_drill": 0.1,
         "name": "HDMI_100Ohm_diff",
         "pcb_color": "rgb(132, 0, 0)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgb(132, 0, 0)",
         "track_width": 0.15,
         "tuning_profile": "",
         "via_diameter": 0.5,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "name": "Index1",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(15, 138, 255)",
+        "tuning_profile": ""
       },
       {
         "bus_width": 12,
@@ -623,7 +630,7 @@
         "microvia_drill": 0.1,
         "name": "PCIe_85Ohm_diff",
         "pcb_color": "rgb(0, 194, 0)",
-        "priority": 7,
+        "priority": 8,
         "schematic_color": "rgb(0, 194, 0)",
         "track_width": 0.23,
         "tuning_profile": "",
@@ -639,7 +646,7 @@
         "microvia_drill": 0.1,
         "name": "PWR",
         "pcb_color": "rgb(255, 0, 0)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 0.3,
         "tuning_profile": "",
@@ -655,7 +662,7 @@
         "microvia_drill": 0.1,
         "name": "SDIO_50Ohm_se",
         "pcb_color": "rgb(0, 132, 0)",
-        "priority": 8,
+        "priority": 9,
         "schematic_color": "rgb(0, 132, 0)",
         "track_width": 0.35,
         "tuning_profile": "",
@@ -671,7 +678,7 @@
         "microvia_drill": 0.1,
         "name": "Strobe_100Ohm",
         "pcb_color": "rgb(255, 2, 244)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.15,
         "tuning_profile": "",
@@ -688,7 +695,7 @@
         "microvia_drill": 0.1,
         "name": "USB_90Ohm_diff",
         "pcb_color": "rgb(204, 102, 0)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgb(204, 102, 0)",
         "track_width": 0.2,
         "tuning_profile": "",
@@ -714,6 +721,10 @@
       {
         "netclass": "Strobe_100Ohm",
         "pattern": "*Strobe*"
+      },
+      {
+        "netclass": "Index1",
+        "pattern": "Index1"
       }
     ]
   },
@@ -723,6 +734,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -898,7 +910,7 @@
         "uuid": "b8e6d233-63ab-459d-a617-f62d9ba23c71"
       }
     ],
-    "used_designators": "SW5-6,J3,J7-15,J22-23,R2,R20,R22,R24-25,#PWR7,#PWR94,#PWR176-179,#PWR181-270,#PWR485-488,#PWR524-533,#PWR535-800,#PWR803-804,#PWR812-993,#PWR1186-1187,#PWR1195-1689",
+    "used_designators": "#PWR7,#PWR94,#PWR176-179,#PWR181-270,#PWR485-488,#PWR524-533,#PWR535-800,#PWR803-804,#PWR812-993,#PWR1186-1187,#PWR1195-1689,R2,R20-22,R24-25,J3,J7-15,J22-23,SW5-6",
     "variants": []
   },
   "sheets": [

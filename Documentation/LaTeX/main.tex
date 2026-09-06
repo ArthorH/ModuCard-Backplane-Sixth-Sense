@@ -1,0 +1,264 @@
+% ============================================================
+%  ModuCard System 3 — Handbook
+% ============================================================
+\documentclass[b5paper, 10pt, twoside]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ── Fonts ───────────────────────────────────────────────────
+% Body: Palatino (warm, slightly old-school)
+% Titles: Helvetica bold condensed (TI-style authority)
+\usepackage{palatino}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{courier}
+
+% ── Geometry ────────────────────────────────────────────────
+\usepackage[
+  b5paper,
+  top=20mm, bottom=24mm,
+  inner=22mm, outer=18mm,
+  headheight=13pt
+]{geometry}
+
+% ── Colors ──────────────────────────────────────────────────
+\usepackage{xcolor}
+\definecolor{inkBlack}{RGB}{18, 16, 14}      % warm near-black (not cold)
+\definecolor{paperCream}{RGB}{250, 246, 235} % aged paper
+\definecolor{accentRed}{RGB}{185, 40, 30}    % TI-style accent
+\definecolor{midGray}{RGB}{130, 125, 118}
+\definecolor{lightGray}{RGB}{210, 205, 195}
+
+% ── TikZ ────────────────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{calc, decorations.pathmorphing, decorations.markings}
+
+% Hand-drawn line style — slight wobble
+\tikzset{
+  hand/.style={
+    decorate,
+    decoration={random steps, segment length=4pt, amplitude=0.4pt},
+    line cap=round, line join=round
+  },
+  handthick/.style={
+    decorate,
+    decoration={random steps, segment length=5pt, amplitude=0.5pt},
+    line width=2.2pt, line cap=round, line join=round
+  },
+  handfill/.style={
+    decorate,
+    decoration={random steps, segment length=3pt, amplitude=0.3pt},
+    line cap=round, line join=round, fill
+  }
+}
+
+% ── Microtype & layout ──────────────────────────────────────
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{setspace}
+
+% ── Headers ─────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\sffamily\textbf{ModuCard System 3}}
+\fancyhead[RO]{\small\sffamily\textbf{\leftmark}}
+\fancyfoot[C]{\small\sffamily\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+
+% ── Chapter / section titles ────────────────────────────────
+\usepackage{titlesec}
+
+% Chapter: big slab number + hand-rule underneath
+\titleformat{\chapter}[hang]
+  {\sffamily\bfseries\LARGE}
+  {\thechapter}{1em}{}[\vspace{4pt}\titlerule]
+\titlespacing*{\chapter}{0pt}{*2}{*2}
+
+\titleformat{\section}
+  {\sffamily\bfseries\normalsize}
+  {\thesection}{1em}{}[{\color{inkBlack}\rule{\linewidth}{0.3pt}}]
+\titlespacing*{\section}{0pt}{*1.5}{*0.8}
+
+\titleformat{\subsection}
+  {\sffamily\bfseries\small}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{*1}{*0.5}
+
+% ── Utilities ───────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  backgroundcolor=\color{lightGray!30},
+  frame=single, framerule=0.4pt,
+  rulecolor=\color{midGray},
+  numbers=left, numberstyle=\tiny\color{midGray},
+  breaklines=true
+}
+
+% ── Note box (hand-border style) ────────────────────────────
+\newcommand{\mcsbox}[2][Note]{%
+  \vspace{6pt}%
+  \noindent
+  \begin{tikzpicture}
+    \node[inner sep=7pt, text width=\dimexpr\linewidth-14pt] (txt)
+      {\footnotesize\rmfamily\textbf{#1:} #2};
+    \draw[hand, line width=1pt, inkBlack]
+      (txt.north west) rectangle (txt.south east);
+  \end{tikzpicture}%
+  \vspace{4pt}%
+}
+
+\newcommand{\mcs}{\textsf{\textbf{MCS\,3}}}
+\newcommand{\mcsfull}{ModuCard System~3}
+
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ────────────────────────────────────────────────────────────
+%  COVER — full page photo only
+% ────────────────────────────────────────────────────────────
+\begin{titlepage}
+  \newgeometry{margin=0pt}
+  \thispagestyle{empty}
+  \noindent
+  \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio=false]{photos/ModuCard-Handbook.png}
+  \restoregeometry
+\end{titlepage}
+
+% ────────────────────────────────────────────────────────────
+%  VERSO — title page (TI inner style, warm paper)
+% ────────────────────────────────────────────────────────────
+\thispagestyle{empty}
+\color{inkBlack}
+
+\vspace*{10mm}
+
+{\sffamily\fontsize{8}{9}\selectfont\bfseries
+  \MakeUppercase{MODULAR MECHANICA 2026}}\par
+\vspace{14mm}
+
+\noindent\rule{\linewidth}{0.3pt}\par
+\vspace{8mm}
+% Inner title — mirrors TI-82 exactly
+{\sffamily\fontsize{40}{40}\bfseries\selectfont MCS\,3}\par
+\vspace{2mm}
+{\sffamily\fontsize{9}{10}\bfseries\selectfont
+  \MakeUppercase{ModuCard System}}\par
+\vspace{2mm}
+{\sffamily\fontsize{20}{20}\bfseries\selectfont
+  \MakeUppercase{Handbook}}\par
+
+
+{\small\rmfamily
+  \vfill
+  \vspace{3mm}
+  {\footnotesize\rmfamily
+    Copyright \textcopyright\ 2024 by Modular Card Consortium.
+    All rights reserved.\par
+    \vspace{2mm}
+    \textit{Modular Card System} and \textit{MCS} are trademarks of the
+    Modular Card Consortium. All other trademarks belong to their
+    respective owners.
+  }
+}
+
+\clearpage
+\pagecolor{white}
+\color{black}
+
+
+% ────────────────────────────────────────────────────────────
+%  FRONT MATTER
+% ────────────────────────────────────────────────────────────
+\frontmatter
+\pagestyle{fancy}
+\tableofcontents
+\clearpage
+
+
+% ────────────────────────────────────────────────────────────
+%  CHAPTER 1 — INTRODUCTION
+% ────────────────────────────────────────────────────────────
+\mainmatter
+
+\chapter{Introduction}
+
+\section{About This Handbook}
+
+This handbook describes the \mcsfull\ (\mcs) interface standard —
+a system of interlocking modular robotic cards that can be freely
+combined, extended, and reconfigured without tools.
+
+\mcsbox{Read this chapter in full before assembling any modules.
+  Incorrect insertion order may damage bus termination circuits.}
+
+The document is structured in four self-contained parts. Each part
+can be read independently; cross-references indicate dependencies
+where they exist.
+
+\section{What Is \mcsfull?}
+
+\mcs\ is a family of interchangeable robotic building blocks.
+Every module exposes four standardised connector faces
+(N, S, E, W) and communicates over a shared differential bus.
+Modules are hot-swappable: the bus protocol detects insertion
+and negotiates addresses automatically.
+
+\medskip
+\noindent Core properties at a glance:
+
+\begin{itemize}[itemsep=3pt, topsep=4pt, leftmargin=*]
+  \item \textbf{Power:} \SI{24}{\volt} shared rail,
+        \SI{3}{\ampere} per face maximum
+  \item \textbf{Data:} \SI{10}{\mega bit\per\second}
+        half-duplex serial, CRC-16 framing
+  \item \textbf{Addressing:} automatic negotiation on hot-attach
+  \item \textbf{Topology:} tree or daisy-chain, up to 63 modules
+\end{itemize}
+
+\section{Conventions Used in This Handbook}
+
+\begin{description}[style=nextline, leftmargin=10mm,
+    itemsep=4pt, topsep=4pt]
+  \item[\texttt{Monospace}]
+        Register names, bus commands, and literal byte values.
+  \item[\textbf{Bold sans}]
+        First use of a defined term; see Glossary (Appendix~A).
+  \item[{[ranges]}]
+        Square brackets denote inclusive value ranges,
+        e.g.\ \texttt{[0x00--0xFF]}.
+  \item[Dimensions]
+        All dimensions in millimetres at \SI{20}{\degreeCelsius}
+        unless otherwise stated.
+\end{description}
+
+\mcsbox[Important]{Chapters marked $\star$ in the Table of Contents
+  contain normative requirements (shall / shall not).
+  All other chapters are informative.}
+
+\section{How To Use This Handbook}
+
+If you are a \textbf{hardware designer}, start with Part~I
+(Mechanical) and Part~II (Electrical), then refer to Part~IV
+(Conformance) for test procedures.
+
+If you are a \textbf{firmware developer}, start with Part~III
+(Communication Protocol), where the complete packet format and
+API are defined.
+
+If you are a \textbf{system integrator}, Part~I Chapter~3
+(Assembly Rules) and Part~III Chapter~9 (Topology Planning)
+are the most immediately useful sections.
+
+
+\end{document}

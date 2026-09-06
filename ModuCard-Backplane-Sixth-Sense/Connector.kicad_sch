@@ -3601,6 +3601,16 @@
 	)
 	(wire
 		(pts
+			(xy 118.11 107.95) (xy 146.05 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "988f429c-9485-46c8-9315-d89b3bda65c8")
+	)
+	(wire
+		(pts
 			(xy 129.54 161.29) (xy 146.05 161.29)
 		)
 		(stroke
@@ -3961,16 +3971,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.6924 107.95) (xy 146.05 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de7b25cf-959f-42ef-b4bd-d4ee19ba8bda")
-	)
-	(wire
-		(pts
 			(xy 80.1624 74.93) (xy 146.05 74.93)
 		)
 		(stroke
@@ -4202,8 +4202,8 @@
 		)
 		(uuid "3bd64d4b-600a-4c13-ac49-a418a320c9ae")
 	)
-	(label "Index"
-		(at 129.6924 110.49 0)
+	(label "Index2"
+		(at 119.38 110.49 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4293,6 +4293,16 @@
 			(justify left bottom)
 		)
 		(uuid "60094b85-9af2-42cc-aa6e-330b07087076")
+	)
+	(label "Index1"
+		(at 119.2276 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6058a819-031f-431d-af6e-f0a18771f79a")
 	)
 	(label "CAN2.+"
 		(at 215.9 34.29 0)
@@ -4735,8 +4745,8 @@
 		)
 		(uuid "6d7b5184-028f-4391-be0a-53cecd2658b0")
 	)
-	(hierarchical_label "Index"
-		(shape input)
+	(hierarchical_label "Index2"
+		(shape bidirectional)
 		(at 118.2624 110.49 180)
 		(effects
 			(font
@@ -4767,6 +4777,17 @@
 			(justify left)
 		)
 		(uuid "cc6be0de-c103-4440-8afd-3353572d3a99")
+	)
+	(hierarchical_label "Index1"
+		(shape bidirectional)
+		(at 118.11 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d3a5d4da-fd18-4f27-929a-1e87fe15c456")
 	)
 	(hierarchical_label "Strobe2{+ -}"
 		(shape input)
@@ -7176,105 +7197,6 @@
 				)
 				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/ca0552b9-49fb-41b8-a9ee-d117cb5c8971"
 					(reference "#PWR0818")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 129.6924 107.95 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5d0e4c9a-592b-418d-ba34-06fbe3df3225")
-		(property "Reference" "#PWR0192"
-			(at 123.3424 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 125.8824 107.9499 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 129.6924 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.6924 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 129.6924 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "02faee56-34ee-4c6c-a8ad-5cd80f52d16a")
-		)
-		(instances
-			(project "ModuCard-Backplane-Sixth-Sense"
-				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/19d333a2-f22e-4eca-9572-c6d456152e84"
-					(reference "#PWR0192")
-					(unit 1)
-				)
-				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/786eaee9-ca46-4374-8031-46bd7bfc8cd1"
-					(reference "#PWR0194")
-					(unit 1)
-				)
-				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/844a7d3a-2f28-4b70-a317-bd0b8d4e14ec"
-					(reference "#PWR0202")
-					(unit 1)
-				)
-				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/c64324c9-a349-4e68-9d18-c46bf62fbd2c"
-					(reference "#PWR0200")
-					(unit 1)
-				)
-				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/c8b1d21f-a391-43a1-b71c-f7309df0bf6f"
-					(reference "#PWR0196")
-					(unit 1)
-				)
-				(path "/b8e6d233-63ab-459d-a617-f62d9ba23c71/ca0552b9-49fb-41b8-a9ee-d117cb5c8971"
-					(reference "#PWR0198")
 					(unit 1)
 				)
 			)
